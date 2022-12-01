@@ -83,7 +83,7 @@ class Register extends Component {
 
 
     //connect to sever with axios
-    axios.post('http://localhost:4000/app/entry', formData)
+    axios.post('https://pvcraffle-api.onrender.com', formData)
       .then(response => console.log(response.data))
 
       //afterwards
