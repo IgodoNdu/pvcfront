@@ -8,7 +8,7 @@ function Entries() {
 
     useEffect(() => {
         const fetchdata = async () => {
-            const data = await axios.get('http://localhost:4000/app/entry/get');
+            const data = await axios.get('https://pvcraffle-api.onrender.com/entry/get');
             //console.log('Entries', data);
             setRetrievedData(data);
         };
