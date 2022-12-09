@@ -80,7 +80,7 @@ class Register extends Component {
     formData.append("lastName", this.state.lastName)
     formData.append("votingState", this.state.votingState)
     formData.append("refferedBy", this.state.refferedBy)
-    formData.append("email", this.state.email)
+    formData.append("age", this.state.age)
     formData.append("phone", this.state.phone)
     formData.append("pvcImage", this.state.pvcImage)
 
@@ -92,6 +92,8 @@ class Register extends Component {
     //connect to sever with axios
     axios.post('https://pvcraffle-api.onrender.com/app/entry', formData)
       .then(response => console.log(response.data))
+    //axios.post('http://localhost:4000/app/entry', formData).then(response => console.log(response.data))
+      
 
       //afterwards
       this.setState({
