@@ -6,28 +6,38 @@ class Register extends Component {
   constructor(){
     super()
     this.state = {
-      fullname: "",
+      firstName: "",
+      middleName: "",
+      lastName: "",
       votingState: "",
       age: "",
-      email: "",
+      refferedBy: "",
       phone: "",
-      recipientEmail: "",
       pvcImage: '',
       responseMsg: '',
     }
     //bind the methods below to the component
-    this.changeFullname = this.changeFullname.bind(this);
+    this.changeFirstname = this.changeFirstname.bind(this);
+    this.changeMiddlename = this.changeMiddlename.bind(this);
+    this.changeLastname = this.changeLastname.bind(this);
     this.changeVotingState = this.changeVotingState.bind(this);
     this.changeAge = this.changeAge.bind(this);
-    this.changeEmail = this.changeEmail.bind(this);
+    this.changeRefferedBy = this.changeRefferedBy.bind(this);
     this.changePhone = this.changePhone.bind(this);
-    this.changeRecipientEmail = this.changeRecipientEmail.bind(this);
     this.changePvcImage = this.changePvcImage.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  changeFullname(e) {
-    this.setState({ fullname: e.target.value })
+  changeFirstname(e) {
+    this.setState({ firstName: e.target.value })
+  }
+
+  changeMiddlename(e) {
+    this.setState({ middleName: e.target.value })
+  }
+
+  changeLastname(e) {
+    this.setState({ lastName: e.target.value })
   }
 
   changeVotingState(e) {
@@ -38,16 +48,12 @@ class Register extends Component {
     this.setState({ age: e.target.value })
   }
 
-  changeEmail(e) {
-    this.setState({ email: e.target.value })
+  changeRefferedBy(e) {
+    this.setState({ refferedBy: e.target.value })
   }
 
   changePhone(e) {
     this.setState({ phone: e.target.value })
-  }
-
-  changeRecipientEmail(e) {
-    this.setState({ recipientEmail: e.target.value })
   }
 
   changePvcImage(e) {
@@ -69,12 +75,13 @@ class Register extends Component {
     // }
 
     const formData = new FormData();
-    formData.append("fullname", this.state.fullname)
+    formData.append("firstName", this.state.firstName)
+    formData.append("middleName", this.state.middleName)
+    formData.append("lastName", this.state.lastName)
     formData.append("votingState", this.state.votingState)
-    formData.append("age", this.state.age)
+    formData.append("refferedBy", this.state.refferedBy)
     formData.append("email", this.state.email)
     formData.append("phone", this.state.phone)
-    formData.append("recipientEmail", this.state.recipientEmail)
     formData.append("pvcImage", this.state.pvcImage)
 
     const config = {     
@@ -88,12 +95,13 @@ class Register extends Component {
 
       //afterwards
       this.setState({
-        fullname: "",
+        firstName: "",
+        middleName: "",
+        lastName: "",
         votingState: "",
         age: "",
-        email: "",
+        refferedBy: "",
         phone: "",
-        recipientEmail: "",
         responseMsg: "Your Response Message on Submission!!"
       })
   }
@@ -104,17 +112,20 @@ class Register extends Component {
         <h1>Register For The Draw</h1>
         <p className='responseMsg'>{this.state.responseMsg}</p>
         <form onSubmit={this.onSubmit} encType="multipart/form-data">
-          <input type='text' placeholder="Full Name" onChange={this.changeFullname} value={this.state.fullname} className='form-control form-group' />
+
+          <input type='text' placeholder="First Name" onChange={this.changeFirstname} value={this.state.firstName} className='form-control form-group' />
+
+          <input type='text' placeholder="Middle Name" onChange={this.changeMiddlename} value={this.state.middleName} className='form-control form-group' />
+
+          <input type='text' placeholder="Last Name" onChange={this.changeLastname} value={this.state.lastName} className='form-control form-group' />
 
           <input type='text' placeholder="Voting State" onChange={this.changeVotingState} value={this.state.votingState} className='form-control form-group' />
 
           <input type='text' placeholder="Age" onChange={this.changeAge} value={this.state.age} className='form-control form-group' />
 
-          <input type='text' placeholder="Email" onChange={this.changeEmail} value={this.state.email} className='form-control form-group' />
+          <input type='text' placeholder="Refferal Code" onChange={this.changeRefferedBy} value={this.state.refferedBy} className='form-control form-group' />
 
           <input type='text' placeholder="Phone" onChange={this.changePhone} value={this.state.phone} className='form-control form-group' />
-
-          <input type='text' placeholder="Ticketing Email" onChange={this.changeRecipientEmail} value={this.state.recipientEmail} className='form-control form-group' />
 
           <input type='file' name="pvcImage" filename="pvcImage" onChange={this.changePvcImage} value={this.state.changePvcImage} className='form-control form-group' />
 
