@@ -1,7 +1,7 @@
 import React from 'react'
 import '../Card.css';
 
-function Card({imgUrl,fullname,phone}) {
+function Card({imgUrl,lastName,firstName,raffleNo,myRefCode,votingState}) {
   return (
     <div className='card-container'>
       <div className='image-container'>
@@ -9,11 +9,20 @@ function Card({imgUrl,fullname,phone}) {
       </div>
       <div className='card-content'>
         <div className='card-title'>
-            {fullname}
+          Last Name: {lastName}
         </div>
 
         <div className='card-body'>
-            {phone}
+          First Name:  {firstName}
+        </div>
+        <div className='card-body'>
+          Raffle Ticket No:  #{raffleNo}
+        </div>
+        <div className='card-body'>
+          Referral Code:  {myRefCode}
+        </div>
+        <div className='card-body'>
+          State:  {votingState}
         </div>
       </div>
     </div>
